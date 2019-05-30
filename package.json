@@ -1,6 +1,6 @@
 {
-  "name": "@cr4zyc4t/grafana-plugin-scripts",
-  "version": "1.0.0",
+  "name": "grafana-plugin-scripts",
+  "version": "1.0.1",
   "description": "Script for bundling grafana plugin panel",
   "main": "index.js",
   "scripts": {
