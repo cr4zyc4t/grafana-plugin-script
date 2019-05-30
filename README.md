@@ -14,11 +14,11 @@ And has some differences:
 
 ## How to use
 ```sh
-npm install @cr4zyc4t/grafana-plugin-scripts
+npm install grafana-plugin-scripts
 ```
 or
 ```sh
-yarn add -D @cr4zyc4t/grafana-plugin-scripts
+yarn add -D grafana-plugin-scripts
 ```
 
 Then add scripts to package.json
