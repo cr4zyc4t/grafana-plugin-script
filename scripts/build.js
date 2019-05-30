@@ -2,7 +2,7 @@ const webpack = require("webpack");
 const fs = require("fs-extra");
 
 const paths = require("../configs/paths");
-const utils = require("../configs/utils");
+const utils = require("./utils/outputHandler");
 
 // Set NODE_ENV before anything else
 process.env.NODE_ENV = "production";

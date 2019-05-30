@@ -28,6 +28,33 @@ function getServedPath(appJson) {
   return ensureSlash(servedUrl, true);
 }
 
+const moduleFileExtensions = [
+  "web.mjs",
+  "mjs",
+  "web.js",
+  "js",
+  "web.ts",
+  "ts",
+  "web.tsx",
+  "tsx",
+  "json",
+  "web.jsx",
+  "jsx",
+];
+
+// Resolve file paths in the same order as webpack
+const resolveModule = (resolveFn, filePath) => {
+  const extension = moduleFileExtensions.find(extension =>
+    fs.existsSync(resolveFn(`${filePath}.${extension}`))
+  );
+
+  if (extension) {
+    return resolveFn(`${filePath}.${extension}`);
+  }
+
+  return resolveFn(`${filePath}.js`);
+};
+
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
 const appDirectory = fs.realpathSync(process.cwd());
@@ -37,12 +64,15 @@ module.exports = {
   appPath: appDirectory,
   dotenv: resolveApp(".env"),
   appDist: resolveApp("dist"),
+  appPackageJson: resolveApp("package.json"),
   appSrc: resolveApp("src"),
   appJson: resolveApp("src/plugin.json"),
   appTsConfig: resolveApp("tsconfig.json"),
   appJsConfig: resolveApp("jsconfig.json"),
+  testsSetup: resolveModule(resolveApp, "src/setupTests"),
   appNodeModules: resolveApp("node_modules"),
   appEntry: resolveApp("src/module"),
   publicUrl: getPublicUrl(resolveApp("package.json")),
   servedPath: getServedPath(resolveApp("src/plugin.json")),
+  moduleFileExtensions,
 };

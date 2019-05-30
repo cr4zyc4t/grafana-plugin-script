@@ -1,45 +1,47 @@
 #!/usr/bin/env node
-'use strict';
+"use strict";
 
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
 // terminate the Node.js process with a non-zero exit code.
-process.on('unhandledRejection', err => {
+process.on("unhandledRejection", err => {
   throw err;
 });
 
-const spawn = require('cross-spawn');
+const spawn = require("cross-spawn");
 const args = process.argv.slice(2);
 
 const scriptIndex = args.findIndex(
-  x => x === 'build' || x === 'start' || x === 'test'
+  x => x === "build" || x === "start" || x === "test"
 );
 const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
 switch (script) {
-  case 'build':
-  case 'start':
-  case 'test': {
+  case "build":
+  case "start":
+  case "test": {
     const result = spawn.sync(
-      'node',
+      "node",
       nodeArgs
-        .concat(require.resolve('../scripts/' + script))
+        .concat(require.resolve(`../scripts/${script}`))
         .concat(args.slice(scriptIndex + 1)),
-      { stdio: 'inherit' }
+      { stdio: "inherit" }
     );
     if (result.signal) {
-      if (result.signal === 'SIGKILL') {
+      if (result.signal === "SIGKILL") {
+        // eslint-disable-next-line no-console
         console.log(
-          'The build failed because the process exited too early. ' +
-            'This probably means the system ran out of memory or someone called ' +
-            '`kill -9` on the process.'
+          "The build failed because the process exited too early. " +
+          "This probably means the system ran out of memory or someone called " +
+          "`kill -9` on the process."
         );
-      } else if (result.signal === 'SIGTERM') {
+      } else if (result.signal === "SIGTERM") {
+        // eslint-disable-next-line no-console
         console.log(
-          'The build failed because the process exited too early. ' +
-            'Someone might have called `kill` or `killall`, or the system could ' +
-            'be shutting down.'
+          "The build failed because the process exited too early. " +
+          "Someone might have called `kill` or `killall`, or the system could " +
+          "be shutting down."
         );
       }
       process.exit(1);
@@ -48,6 +50,7 @@ switch (script) {
     break;
   }
   default:
-    console.log('Unknown script "' + script + '".');
+    // eslint-disable-next-line no-console
+    console.log(`Unknown script "${script}".`);
     break;
 }

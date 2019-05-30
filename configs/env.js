@@ -40,7 +40,6 @@ const dotenvFiles = [
 // https://github.com/motdotla/dotenv-expand
 dotenvFiles.forEach(dotenvFile => {
   if (fs.existsSync(dotenvFile)) {
-    console.log("ToanVQ: dotenvFile", dotenvFile);
     require("dotenv-expand")(
       require("dotenv").config({
         path: dotenvFile,
