@@ -106,7 +106,7 @@ module.exports = {
   entry: paths.appEntry,
   output: {
     filename: "module.js",
-    // chunkFilename: "static/js/[name].[contenthash:8].chunk.js",
+    chunkFilename: "static/js/[name].[contenthash:8].chunk.js",
     path: paths.appDist,
     publicPath,
     libraryTarget: "amd",
@@ -134,7 +134,7 @@ module.exports = {
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: "static/css/[name].[contenthash:8].css",
-      // chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
+      chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
     }),
     useTypeScript && new ForkTsCheckerWebpackPlugin({
       async: isEnvDevelopment,
@@ -254,6 +254,11 @@ module.exports = {
             options: {
               // formatter: require.resolve('react-dev-utils/eslintFormatter'),
               eslintPath: require.resolve("eslint"),
+              baseConfig: {
+                extends: [require.resolve('eslint-config-react-app')],
+              },
+              ignore: false,
+              useEslintrc: false,
             },
             loader: require.resolve("eslint-loader"),
           },
@@ -282,6 +287,9 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve("babel-loader"),
             options: {
+              babelrc: false,
+              configFile: false,
+
               presets: [
                 ["react-app", {
                   flow: false,
