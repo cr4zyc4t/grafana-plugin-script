@@ -4,7 +4,7 @@ import {
   ThemeContext,
 } from "@grafana/ui";
 import styled from "styled-components/macro";
-import "./GanttChartPanel.css";
+import "./ExamplePanel.css";
 import testImg from "assets/img/test.jpg";
 
 const MyHello = styled.div`
@@ -14,7 +14,7 @@ const MyHello = styled.div`
 
 interface Props extends PanelProps<{}> { }
 
-export class GanttChartPanel extends PureComponent<Props> {
+export class ExamplePanel extends PureComponent<Props> {
 
   double(x: number) {
     return x * 2;
@@ -31,13 +31,6 @@ export class GanttChartPanel extends PureComponent<Props> {
     return (
       <ThemeContext.Consumer>
         {theme => {
-          // console.log("ToanVQ: ComboPanel -> render -> theme",
-          //   theme,
-          //   options,
-          //   timeRange,
-          //   width,
-          //   height
-          // );
           return (
             <div>
               <MyHello className="gantt-chart-hello">Hello Granfana Panel</MyHello>

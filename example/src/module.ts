@@ -1,10 +1,10 @@
 import { PanelPlugin } from "@grafana/ui";
-import { GanttChartPanel } from "./GanttChartPanel";
-import { GanttChartPanelEditor } from "./components/GanttChartPanelEditor";
+import { ExamplePanel } from "./ExamplePanel";
+import { ExamplePanelEditor } from "./components/ExamplePanelEditor";
 
-export const plugin = new PanelPlugin(GanttChartPanel);
+export const plugin = new PanelPlugin(ExamplePanel);
 
-plugin.setEditor(GanttChartPanelEditor);
+plugin.setEditor(ExamplePanelEditor);
 plugin.setDefaults({
   test: 1,
 });

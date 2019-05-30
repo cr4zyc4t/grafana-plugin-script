@@ -3,10 +3,10 @@ import {
   PanelEditorProps,
   PanelOptionsGrid,
 } from "@grafana/ui";
-import "./GanttChartPanelEditor.css";
-import s from "./GanttChartPanelEditor.module.css";
+import "./ExamplePanelEditor.css";
+import s from "./ExamplePanelEditor.module.css";
 
-export class GanttChartPanelEditor extends PureComponent<PanelEditorProps<{}>> {
+export class ExamplePanelEditor extends PureComponent<PanelEditorProps<{}>> {
   // onLayoutChange = layout =>
   //   this.props.onChange({ ...this.props.options, layout: layout });
 
@@ -31,7 +31,6 @@ export class GanttChartPanelEditor extends PureComponent<PanelEditorProps<{}>> {
 
   render() {
     // const { options } = this.props;
-    // console.log("ToanVQ: ComboPanelEditor -> render -> options", options);
 
     return (
       <>

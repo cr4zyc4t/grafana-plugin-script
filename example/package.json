@@ -27,9 +27,10 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "grafana-plugin-scripts": "../",
+    "@cr4zyc4t/eslint-config-common": "^1.0.2",
     "@types/node": "^12.0.3",
     "@types/react": "^16.8.19",
-    "@types/react-dom": "^16.8.4"
+    "@types/react-dom": "^16.8.4",
+    "grafana-plugin-scripts": "../"
   }
 }
