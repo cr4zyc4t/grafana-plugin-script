@@ -1,5 +1,5 @@
 {
-  "name": "@cr4zyc4t/grafana-plugin-script",
+  "name": "@cr4zyc4t/grafana-plugin-scripts",
   "version": "1.0.0",
   "description": "Script for bundling grafana plugin panel",
   "main": "index.js",
@@ -67,7 +67,6 @@
     "webpack": "^4.32.2"
   },
   "devDependencies": {
-    "@cr4zyc4t/eslint-config-common": "^1.0.2",
-    "depcheck": "0.8.0"
+    "@cr4zyc4t/eslint-config-common": "^1.0.2"
   }
 }
