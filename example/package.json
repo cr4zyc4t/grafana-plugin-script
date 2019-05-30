@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "grafana-scripts start",
-    "build": "grafana-scripts build",
+    "start": "node ../scripts/start",
+    "build": "node ../scripts/build",
+    "test": "node ../scripts/test",
     "lint": "eslint src",
     "analyze": "source-map-explorer dist/module.js dist/module.js.map"
   },
@@ -30,7 +31,6 @@
     "@cr4zyc4t/eslint-config-common": "^1.0.2",
     "@types/node": "^12.0.3",
     "@types/react": "^16.8.19",
-    "@types/react-dom": "^16.8.4",
-    "grafana-plugin-scripts": "../"
+    "@types/react-dom": "^16.8.4"
   }
 }

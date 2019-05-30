@@ -35,6 +35,7 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 module.exports = {
   appPath: appDirectory,
+  dotenv: resolveApp(".env"),
   appDist: resolveApp("dist"),
   appSrc: resolveApp("src"),
   appJson: resolveApp("src/plugin.json"),

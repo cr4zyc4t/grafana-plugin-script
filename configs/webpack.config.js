@@ -9,17 +9,18 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const paths = require("./paths");
 const modules = require("./modules");
+const getClientEnvironment = require("./env");
 
 const isEnvDevelopment = process.env.NODE_ENV === "development";
 const isEnvProduction = process.env.NODE_ENV === "production";
 
-const extractCSS = process.env.GENERATE_CSS === true || process.env.GENERATE_CSS === "true";
+const extractCSS = process.env.GENERATE_CSS === "true";
 
 // Check if TypeScript is setup
 const useTypeScript = fs.existsSync(paths.appTsConfig);
 
 // Only affect production build
-const shouldUseSourceMap = isEnvDevelopment || process.env.SOURCE_MAP === true || process.env.SOURCE_MAP === "true";
+const shouldUseSourceMap = isEnvDevelopment || process.env.SOURCE_MAP === "true";
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -28,6 +29,10 @@ const publicPath = paths.servedPath;
 // Some apps do not use client-side routing with pushState.
 // For these, "homepage" can be set to "." to enable relative asset paths.
 const shouldUseRelativeAssetPaths = publicPath === "./";
+
+const publicUrl = publicPath.slice(0, -1);
+// Get environment variables to inject into our app.
+const env = getClientEnvironment(publicUrl);
 
 // Detect window subsystem linux
 const isWsl = process.env.IS_WSL === true;
@@ -123,9 +128,12 @@ module.exports = {
     },
   ],
   plugins: [
-    new webpack.DefinePlugin({
-      NODE_ENV: isEnvProduction ? "production" : "development",
-    }),
+    // Makes some environment variables available to the JS code, for example:
+    // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
+    // It is absolutely essential that NODE_ENV is set to production
+    // during a production build.
+    // Otherwise React will be compiled in the very slow development mode.
+    new webpack.DefinePlugin(env.stringified),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new CopyWebpackPlugin([
       { from: paths.appJson, to: "." },
@@ -255,7 +263,7 @@ module.exports = {
               // formatter: require.resolve('react-dev-utils/eslintFormatter'),
               eslintPath: require.resolve("eslint"),
               baseConfig: {
-                extends: [require.resolve('eslint-config-react-app')],
+                extends: [require.resolve("eslint-config-react-app")],
               },
               ignore: false,
               useEslintrc: false,
