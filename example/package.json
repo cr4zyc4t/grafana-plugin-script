@@ -1,0 +1,35 @@
+{
+  "name": "grafana-plugin-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "grafana-scripts start",
+    "build": "grafana-scripts build",
+    "lint": "eslint src",
+    "analyze": "source-map-explorer dist/module.js dist/module.js.map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cr4zyc4t/grafana-plugin-template.git"
+  },
+  "author": "ToanVQ",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cr4zyc4t/grafana-plugin-template/issues"
+  },
+  "homepage": "https://github.com/cr4zyc4t/grafana-plugin-template#readme",
+  "dependencies": {
+    "@grafana/ui": "^6.2.0-alpha.0",
+    "@types/styled-components": "^4.1.15",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.2.0"
+  },
+  "devDependencies": {
+    "@cr4zyc4t/grafana-plugin-scripts": "../",
+    "@types/node": "^12.0.3",
+    "@types/react": "^16.8.19",
+    "@types/react-dom": "^16.8.4"
+  }
+}

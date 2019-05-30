@@ -1,0 +1,26 @@
+{
+  "type": "panel",
+  "name": "Gantt Chart Panel",
+  "id": "ganttchart-panel",
+  "dataFormats": [
+    "time_series"
+  ],
+  "info": {
+    "description": "Gantt Chart Panel for Gigasana",
+    "author": {
+      "name": "",
+      "url": ""
+    },
+    "keywords": [
+      "Gantt Chart Panel"
+    ],
+    "links": [],
+    "screenshots": [],
+    "version": "0.0.1",
+    "updated": "2019-05-29"
+  },
+  "dependencies": {
+    "grafanaVersion": "6.x.x",
+    "plugins": []
+  }
+}

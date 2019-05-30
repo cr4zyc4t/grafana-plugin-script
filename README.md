@@ -10,7 +10,7 @@ This plugin work like react-scripts (actually I copy a lot of code from it, than
 
 And has some differences:
 - Output target will be "amd" instead of "commonJS", because Grafana required that.
-- By default, there will be no css output, css will be load automatically using style-loader. If you want to extract css output, set env GENERATE_CSS=true. I personally recommend to use styled-components instead.
+- By default, there will be no css output, css will be loaded automatically using style-loader. If you want to extract css output, set env GENERATE_CSS=true. I personally recommend to use <b>styled-components</b> instead.
 
 ## How to use
 ```sh
