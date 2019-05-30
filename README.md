@@ -1,7 +1,7 @@
 # Grafana plugin scripts
 
 Grafana 6 has a big change for developers: from grunt to webpack, and from Angular to React
-This plugin work like react-scripts (actually I copy a lot of code from it, thanks those guys who wrote it), which mean it support same features:
+This plugin work like react-scripts from create-react-app (actually I copy a lot of code from it, thanks those guys who wrote it), which mean it support same features:
 - Bundle and compile ESNext JS to ES5 (depend on your browserlist config)
 - Support CSS module, SASS, SASS module, PostCSS with autoprefixer
 - Support TypeScript (enabled by create tsconfig.json)
@@ -14,7 +14,7 @@ And has some differences:
 
 ## How to use
 ```sh
-npm install grafana-plugin-scripts
+npm install --save-dev grafana-plugin-scripts
 ```
 or
 ```sh

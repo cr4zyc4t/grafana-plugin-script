@@ -1,18 +1,18 @@
 {
   "type": "panel",
-  "name": "Gantt Chart Panel",
-  "id": "ganttchart-panel",
+  "name": "Example Panel",
+  "id": "example-panel",
   "dataFormats": [
     "time_series"
   ],
   "info": {
-    "description": "Gantt Chart Panel for Gigasana",
+    "description": "Example Panel for Gigasana",
     "author": {
       "name": "",
       "url": ""
     },
     "keywords": [
-      "Gantt Chart Panel"
+      "Example Granafa Panel"
     ],
     "links": [],
     "screenshots": [],
